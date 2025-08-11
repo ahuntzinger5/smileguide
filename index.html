@@ -1,12 +1,197 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Smile Guide • Dental Health Associates</title>
+  <style>
+    :root{
+      --ink:#24304a;        /* classic navy */
+      --teal:#1fb6a6;       /* DHA accent */
+      --soft:#f6f7fb;       /* page bg */
+      --card:#ffffff;
+      --muted:#6b7280;
+    }
+    html,body{margin:0;height:100%;background:var(--soft);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;}
+    .wrap{max-width:820px;margin:0 auto;padding:20px}
+    header{display:flex;align-items:center;gap:14px;padding:18px 0 8px}
+    .logo{width:44px;height:44px;border-radius:10px;background:
+      radial-gradient(circle at 28% 30%,#fff 0 18px,transparent 19px),
+      linear-gradient(135deg,#1fb6a6,#2f6db7);
+      position:relative;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .logo:after{content:"";position:absolute;inset:0;border-radius:10px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35)}
+    h1{font-size:20px;margin:0}
+    .tag{color:var(--muted);font-size:14px;margin-top:2px}
+    .belt{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+    .pill{background:#eaf7f5;color:#0f766e;border:1px solid #c6ece7;border-radius:999px;padding:6px 10px;font-size:13px}
+    .grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:720px){.grid{grid-template-columns: 1.2fr .8fr}}
+    .card{background:var(--card);border-radius:16px;box-shadow:0 8px 24px rgba(20,33,61,.06);padding:14px}
+    .chat{height:520px;display:flex;flex-direction:column}
+    .stream{flex:1;overflow:auto;padding:8px 4px}
+    .b{display:flex;gap:10px;margin:8px 0}
+    .me{justify-content:flex-end}
+    .b .bubble{max-width:78%;padding:10px 12px;border-radius:14px}
+    .b.me .bubble{background:#e7eefc}
+    .b.bot .bubble{background:#f3f5f9}
+    .quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+    .q{border:1px solid #dbe2f3;background:#fff;border-radius:999px;padding:6px 10px;font-size:13px;cursor:pointer}
+    .input{display:flex;gap:8px;margin-top:8px}
+    input[type=text]{flex:1;border:1px solid #d6dbe8;border-radius:12px;padding:12px 12px;font-size:15px}
+    button{background:var(--ink);color:#fff;border:0;border-radius:12px;padding:12px 14px;font-weight:600;cursor:pointer}
+    .side .card{padding:16px}
+    .side h3{margin:0 0 6px 0;font-size:16px}
+    .kv{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:14px;color:#2b3347}
+    .kv span.m{color:var(--muted)}
+    .cta{display:grid;gap:8px;margin-top:10px}
+    .cta a, .cta button.link{display:block;text-align:center;padding:10px 12px;border-radius:10px;border:1px solid #dbe2f3;text-decoration:none;color:var(--ink);background:#fff}
+    .cta a.primary{background:var(--teal);border-color:var(--teal);color:#fff}
+    .small{font-size:13px;color:var(--muted)}
+    .hr{height:1px;background:#eef1f6;margin:10px 0}
+  </style>
 </head>
 <body>
-  <h1>Welcome to Smile Guide</h1>
-  <p>Mobile-friendly assistant for Dental Health Associates</p>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1>Smile Guide — Dental Health Associates</h1>
+        <div class="tag">Traditional, friendly care — slightly modernized 😊</div>
+      </div>
+    </header>
+
+    <div class="belt">
+      <span class="pill">Patients first</span>
+      <span class="pill">Instant likability</span>
+      <span class="pill">Integrity</span>
+      <span class="pill">Dependable</span>
+      <span class="pill">Hard working</span>
+    </div>
+
+    <div class="grid">
+      <!-- Chat -->
+      <div class="card chat" id="chatCard">
+        <div class="stream" id="stream"></div>
+
+        <div class="quick" id="quick">
+          <button class="q">Hours today</button>
+          <button class="q">Addresses</button>
+          <button class="q">Emergency / pain</button>
+          <button class="q">Membership plan</button>
+          <button class="q">Invisalign with Dr. Mick</button>
+          <button class="q">Book an appointment</button>
+        </div>
+
+        <form class="input" id="form">
+          <input id="msg" type="text" placeholder="Ask anything about your visit, insurance, emergencies…" autocomplete="off" />
+          <button type="submit">Send</button>
+        </form>
+        <div class="small">Note: This preview uses instant, on-device answers. We can upgrade to live AI chat with one click once we add a secure proxy.</div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="side">
+        <div class="card">
+          <h3>Call us</h3>
+          <div class="cta">
+            <a class="primary" href="tel:14198824510">Sylvania • (419) 882-4510</a>
+            <a class="" href="tel:14198770382">Whitehouse • (419) 877-0382</a>
+          </div>
+          <div class="hr"></div>
+          <h3>Locations</h3>
+          <div class="kv">
+            <span class="m">Sylvania</span><span>3924 Sylvan Lakes Blvd, Sylvania, OH 43560</span>
+            <span class="m">Whitehouse</span><span>5934 Finzel Rd, Whitehouse, OH</span>
+          </div>
+          <div class="hr"></div>
+          <h3>Hours</h3>
+          <div class="kv small">
+            <span class="m">Sylvania</span><span>Mon 8–5 · Tue–Thu 8–8 · Fri 8–12 · alt Sat 8–12</span>
+            <span class="m">Whitehouse</span><span>Mon 8–5 · Tue–Wed 1–8 · Thu 8–5 · 1 Sat/mo</span>
+          </div>
+          <div class="hr"></div>
+          <h3>Fast links</h3>
+          <div class="cta">
+            <a href="#chatCard">Ask a question</a>
+            <a href="mailto:info@itneverhurtstosmile.com">Email the team</a>
+            <button class="link" onclick="suggestBooking()">Request appointment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* -------- Smart FAQ / Triage (client-only preview) -------- */
+const stream = document.getElementById('stream');
+const form = document.getElementById('form');
+const msg  = document.getElementById('msg');
+const quick = document.getElementById('quick');
+
+const HOURS = `Sylvania — Mon 8–5, Tue–Thu 8–8, Fri 8–12, every other Sat 8–12.
+Whitehouse — Mon 8–5, Tue–Wed 1–8, Thu 8–5, one Sat/month.`;
+const ADDR = `Sylvania: 3924 Sylvan Lakes Blvd, Sylvania, OH 43560
+Whitehouse: 5934 Finzel Rd, Whitehouse, OH`;
+const EMERGENCY = `If you’re in pain, we usually see you the **same day** (or within **24–48 hours** latest).
+Call Sylvania (419) 882-4510 or Whitehouse (419) 877-0382 now.`;
+const MEMBERSHIP = `Membership (no insurance? great!):
+• Adult $45/mo • Child $42/mo • $99 one-time activation
+Includes cleanings (2/yr), exams, fluoride, needed x-rays, 1 emergency exam/yr, and up to 15% off other care.`;
+const INVISALIGN = `Dr. Nanette Mick is a Diamond-level Invisalign provider and completes more cases than almost anyone in Toledo. Great for adults & teens.`;
+const BOOKING = `We don’t offer online scheduling yet.
+Tap a number to request a time: Sylvania (419) 882-4510 • Whitehouse (419) 877-0382.`;
+
+function addBubble(text, who='bot'){
+  const row = document.createElement('div');
+  row.className = 'b ' + (who==='me'?'me':'bot');
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+  bubble.innerHTML = text;
+  row.appendChild(bubble);
+  stream.appendChild(row);
+  stream.scrollTop = stream.scrollHeight;
+}
+
+function suggestBooking(){
+  addBubble(BOOKING);
+}
+
+function answer(q){
+  const s = q.toLowerCase();
+  if(/hour|open|close|today|time/.test(s)) return HOURS;
+  if(/address|location|where|directions/.test(s)) return ADDR;
+  if(/emerg|pain|toothache|broken|chip/.test(s)) return EMERGENCY;
+  if(/member|plan|no insurance|savings/.test(s)) return MEMBERSHIP;
+  if(/invisalign|aligner|clear/.test(s)) return INVISALIGN;
+  if(/book|schedule|appointment|new patient|consult/.test(s)) return BOOKING;
+  if(/insurance|pay|cost|price/.test(s)) return `We accept cash, check, debit/credit, CareCredit, and offer monthly payments through partners. Membership can save significantly for non-insured patients.`;
+  if(/x-?ray|cleaning|fluoride|exam/.test(s)) return `Routine care includes 2 cleanings/yr, 1–2 doctor exams, fluoride (2/yr), and needed x-rays, plus one emergency exam/yr.`;
+  if(/implant/.test(s)) return `We place and restore implants and handle mini implants too. Happy to evaluate which option fits your case and timeline.`;
+  if(/kid|child|pediatric/.test(s)) return `We love kids! Gentle visits, prizes, and fluoride for strong smiles. We can see siblings together when possible.`;
+  return `Great question! I can route this to the team. For fastest help, call Sylvania (419) 882-4510 or Whitehouse (419) 877-0382 — or ask again using words like “hours”, “membership”, “Invisalign”, or “emergency”.`;
+}
+
+function handle(q){
+  addBubble(q,'me');
+  setTimeout(()=>addBubble(answer(q)) , 250);
+}
+
+form.addEventListener('submit', e=>{
+  e.preventDefault();
+  const q = msg.value.trim();
+  if(!q) return;
+  msg.value = '';
+  handle(q);
+});
+
+quick.addEventListener('click', e=>{
+  if(e.target.classList.contains('q')) handle(e.target.textContent);
+});
+
+// Greet
+addBubble(`Hi! I’m the Smile Guide for Dental Health Associates.
+Ask me about **hours, addresses, emergencies, membership, Invisalign**, or **booking**.
+If you’re in pain, we’ll get you in **same day** whenever possible — call us!`);
+</script>
 </body>
 </html>
